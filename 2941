@@ -1,0 +1,49 @@
+#include <stdio.h>
+#include <string.h>
+
+int main(void)
+{
+    char str[100];
+    scanf("%s", str);
+    int len = strlen(str);
+
+    for (int i = 0; i < strlen(str) - 1; i++)
+    {
+        switch (str[i])
+        {
+        case 'c':
+            if (str[i + 1] == '=' || str[i + 1] == '-')
+                len--;
+            break;
+        case 'l':
+            if (str[i + 1] == 'j')
+                len--;
+            break;
+        case 'd':
+            if (str[i + 1] == '-')
+                len--;
+            break;
+        case 'n':
+            if (str[i + 1] == 'j')
+                len--;
+            break;
+        case 's':
+            if (str[i + 1] == '=')
+                len--;
+            break;
+        case 'z':
+            if (str[i - 1] == 'd' && str[i + 1] == '=')
+            {
+                len -= 2;
+                break;
+            }
+            if (str[i + 1] == '=')
+                len--;
+            break;
+        }
+    }
+
+    printf("%d", len);
+
+    return 0;
+}
