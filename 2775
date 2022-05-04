@@ -1,0 +1,36 @@
+#include <stdio.h>
+
+int count;
+
+int apartment(int k, int n){
+  if(k == 0){
+    count += n;
+    return count;
+  }
+  else{
+    for(int i = 1; i <= n; i++){
+      count = apartment(k - 1, i);
+    }
+  }
+  return count;
+}
+
+int main(void) {
+  int num, k, n;
+
+  scanf("%d", &num);
+
+  int result[num];
+  
+  for(int i = 0; i < num; i++){
+    scanf("%d", &k);
+    scanf("%d", &n);
+    count = 0;
+    result[i] = apartment(k, n);
+  }
+  for(int j = 0; j < num; j++){
+    printf("%d\n", result[j]);
+  }
+  
+  return 0;
+}
